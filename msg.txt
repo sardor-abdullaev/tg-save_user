@@ -1,0 +1,86 @@
+{
+  message_id: 1397,
+  from: {
+    id: 105673136,
+    is_bot: false,
+    first_name: 'Sardor',
+    last_name: 'Abdullaev',
+    username: 'sardor_abdullaev',
+    language_code: 'en'
+  },
+  chat: {
+    id: 105673136,
+    first_name: 'Sardor',
+    last_name: 'Abdullaev',
+    username: 'sardor_abdullaev',
+    type: 'private'
+  },
+  date: 1739248908,
+  text: 'fghgfhgf'
+}
+
+location
+
+
+{
+  message_id: 1434,
+  from: {
+    id: 105673136,
+    is_bot: false,
+    first_name: 'Sardor',
+    last_name: 'Abdullaev',
+    username: 'sardor_abdullaev',
+    language_code: 'en'
+  },
+  chat: {
+    id: 105673136,
+    first_name: 'Sardor',
+    last_name: 'Abdullaev',
+    username: 'sardor_abdullaev',
+    type: 'private'
+  },
+  date: 1739267003,
+  text: '/location',
+  entities: [ { offset: 0, length: 9, type: 'bot_command' } ]
+}
+{
+  message_id: 1436,
+  from: {
+    id: 105673136,
+    is_bot: false,
+    first_name: 'Sardor',
+    last_name: 'Abdullaev',
+    username: 'sardor_abdullaev',
+    language_code: 'en'
+  },
+  chat: {
+    id: 105673136,
+    first_name: 'Sardor',
+    last_name: 'Abdullaev',
+    username: 'sardor_abdullaev',
+    type: 'private'
+  },
+  date: 1739267597,
+  forward_origin: {
+    type: 'user',
+    sender_user: {
+      id: 36976279,
+      is_bot: false,
+      first_name: '吴尚',
+      last_name: "ULUG'BEK",
+      username: 'Boomixtechno',
+      is_premium: true
+    },
+    date: 1623509665
+  },
+  forward_from: {
+    id: 36976279,
+    is_bot: false,
+    first_name: '吴尚',
+    last_name: "ULUG'BEK",
+    username: 'Boomixtechno',
+    is_premium: true
+  },
+  forward_date: 1623509665,
+  location: { latitude: 41.251514, longitude: 69.21788 }
+}
