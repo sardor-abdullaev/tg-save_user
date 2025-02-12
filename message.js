@@ -1,9 +1,15 @@
 const { bot } = require('./bot');
 const User = require('./model/user.model');
-const { saveUser, startMenu } = require('./controller/user.controller');
+const {
+  saveUser,
+  startMenu,
+  showUsers,
+  sendMsgToAdmins,
+  sendAd,
+} = require('./controller/user.controller');
 
 bot.on('message', async (msg) => {
-  console.log(msg);
+  // console.log(msg);
 
   const { first_name, last_name, username, id: chatId } = msg.from;
   const user = await User.findOne({ chatId });
@@ -13,7 +19,11 @@ bot.on('message', async (msg) => {
     await user.save();
     return;
   }
-//   console.log('test');
+  if (user.action == 'sendad') {
+    sendAd(chatId, msg.text);
+    return;
+  }
+  //   console.log('test');
   switch (msg.text) {
     case '/start':
       if (!user) {
@@ -30,5 +40,15 @@ bot.on('message', async (msg) => {
       break;
     case '/location':
       bot.sendLocation(chatId, 41.251514, 69.21788);
+      break;
+    case '/users':
+      showUsers(chatId);
+      break;
+    case '/sendad':
+      sendAd(chatId);
+      break;
+    default:
+      sendMsgToAdmins(username, msg.text);
+      break;
   }
 });
