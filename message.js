@@ -38,6 +38,7 @@ bot.on('message', async (msg) => {
   // photo
   if (msg.photo) {
     admin.forEach((adminChatId) => {
+      bot.sendMessage(adminChatId, `@${msg.from.username}`);
       bot.sendPhoto(adminChatId, msg.photo[0].file_id, {
         reply_markup: { remove_keyboard: true },
       });
@@ -48,6 +49,7 @@ bot.on('message', async (msg) => {
   // voice
   if (msg.voice) {
     admin.forEach((adminChatId) => {
+      bot.sendMessage(adminChatId, `@${msg.from.username}`);
       bot.sendAudio(adminChatId, msg.voice.file_id, {
         reply_markup: { remove_keyboard: true },
       });
@@ -58,6 +60,7 @@ bot.on('message', async (msg) => {
   // video
   if (msg.video) {
     admin.forEach((adminChatId) => {
+      bot.sendMessage(adminChatId, `@${msg.from.username}`);
       bot.sendVideo(adminChatId, msg.video.file_id, {
         reply_markup: { remove_keyboard: true },
       });
@@ -68,6 +71,7 @@ bot.on('message', async (msg) => {
   // video_note
   if (msg.video_note) {
     admin.forEach((adminChatId) => {
+      bot.sendMessage(adminChatId, `@${msg.from.username}`);
       bot.sendVideoNote(adminChatId, msg.video_note.file_id, {
         reply_markup: { remove_keyboard: true },
       });
@@ -78,6 +82,7 @@ bot.on('message', async (msg) => {
   // document
   if (msg.document) {
     admin.forEach((adminChatId) => {
+      bot.sendMessage(adminChatId, `@${msg.from.username}`);
       bot.sendDocument(adminChatId, msg.document.file_id, {
         reply_markup: { remove_keyboard: true },
       });
@@ -88,6 +93,7 @@ bot.on('message', async (msg) => {
   // audio
   if (msg.audio) {
     admin.forEach((adminChatId) => {
+      bot.sendMessage(adminChatId, `@${msg.from.username}`);
       bot.sendAudio(adminChatId, msg.audio.file_id, {
         reply_markup: { remove_keyboard: true },
       });
