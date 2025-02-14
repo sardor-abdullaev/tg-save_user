@@ -95,43 +95,44 @@ bot.on('message', async (msg) => {
     return;
   }
 
-  //   console.log('test');
-  switch (msg.text) {
-    case '/start':
-      if (!user) {
-        saveUser({ first_name, last_name, username, chatId });
-        startMenu(chatId);
-        return;
-      } else {
-        await User.findOneAndUpdate(
-          { chatId },
-          { first_name, last_name, username }
-        );
-        startMenu(chatId);
-        return;
-      }
-    case '/location':
-      bot.sendLocation(chatId, 41.251514, 69.21788, {
-        reply_markup: {
-          remove_keyboard: true,
-        },
-      });
-      break;
-    case '/users':
-      showUsers(chatId);
-      break;
-    case '/sendad':
-      sendAd(chatId);
-      break;
-    default:
-      sendMsgToAdmins(username, msg.text);
-      break;
-  }
+  if (msg.text) {
+    //send ad
+    if (user.action == 'sendad' && !msg.text.startsWith('/')) {
+      sendAd(chatId, msg.text);
+      return;
+    }
 
-  //send ad
-  if (user.action == 'sendad') {
-    sendAd(chatId, msg.text);
-    return;
+    switch (msg.text) {
+      case '/start':
+        if (!user) {
+          saveUser({ first_name, last_name, username, chatId });
+          startMenu(chatId);
+          return;
+        } else {
+          await User.findOneAndUpdate(
+            { chatId },
+            { first_name, last_name, username }
+          );
+          startMenu(chatId);
+          return;
+        }
+      case '/location':
+        bot.sendLocation(chatId, 41.251514, 69.21788, {
+          reply_markup: {
+            remove_keyboard: true,
+          },
+        });
+        break;
+      case '/users':
+        showUsers(chatId);
+        break;
+      case '/sendad':
+        sendAd(chatId);
+        break;
+      default:
+        sendMsgToAdmins(username, msg.text);
+        break;
+    }
   }
 
   user.action = '';
