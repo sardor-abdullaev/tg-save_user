@@ -37,7 +37,11 @@ exports.startMenu = (chatId) => {
 
 exports.showUsers = async (chatId) => {
   if (!isAdmin(chatId)) {
-    bot.sendMessage(chatId, "Sizga ruxsat yo'q");
+    bot.sendMessage(chatId, "Sizga ruxsat yo'q", {
+      reply_markup: {
+        remove_keyboard: true,
+      },
+    });
     return;
   }
 
@@ -56,7 +60,11 @@ exports.showUsers = async (chatId) => {
     .join('\n\n');
   // console.log(users);
 
-  bot.sendMessage(chatId, usersText);
+  bot.sendMessage(chatId, usersText, {
+    reply_markup: {
+      remove_keyboard: true,
+    },
+  });
 };
 
 exports.sendMsgToAdmins = (username, msg) => {
@@ -67,7 +75,9 @@ exports.sendMsgToAdmins = (username, msg) => {
 
 exports.sendAd = async (chatId, msg = '') => {
   if (!isAdmin(chatId)) {
-    bot.sendMessage(chatId, "Sizga ruxsat yo'q");
+    bot.sendMessage(chatId, "Sizga ruxsat yo'q", {
+      reply_markup: { remove_keyboard: true },
+    });
     return;
   }
 
@@ -79,7 +89,11 @@ exports.sendAd = async (chatId, msg = '') => {
     });
     user.action = '';
   } else {
-    bot.sendMessage(chatId, "E'lonni yozing:");
+    bot.sendMessage(chatId, "E'lonni yozing:(tekst formatda)", {
+      reply_markup: {
+        remove_keyboard: true,
+      },
+    });
     user.action = 'sendad';
   }
   await user.save();
